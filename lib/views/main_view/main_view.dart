@@ -41,7 +41,7 @@ class _MainViewState extends State<MainView> {
   /// This initializes SpeechToText. That only has to be done
   /// once per application, though calling it again is harmless
   /// it also does nothing. The UX of the sample app ensures that
-  /// it can only be called once.
+  /// it can only be called once.NSSpeechRecognitionUsageDescription
   Future<void> initSpeechState() async {
     _logEvent('Initialize');
     try {
@@ -51,6 +51,8 @@ class _MainViewState extends State<MainView> {
         debugLogging: _logEvents,
       );
       if (hasSpeech) {
+        print("Here");
+
         // Get the list of languages installed on the supporting platform so they
         // can be displayed in the UI for selection by the user.
         _localeNames = await speech.locales();
@@ -64,6 +66,7 @@ class _MainViewState extends State<MainView> {
         _hasSpeech = hasSpeech;
       });
     } catch (e) {
+      print("Error: #${e.toString()}");
       setState(() {
         lastError = 'Speech recognition failed: ${e.toString()}';
         _hasSpeech = false;
