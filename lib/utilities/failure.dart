@@ -12,3 +12,10 @@ class UnableToInitializeFailure extends Failure {
   @override
   List<Object?> get props => [message];
 }
+
+class UnableToListen extends Failure {
+  const UnableToListen(String message) : super(message);
+
+  @override
+  List<Object?> get props => [message];
+}

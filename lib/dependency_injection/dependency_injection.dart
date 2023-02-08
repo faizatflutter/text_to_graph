@@ -14,6 +14,9 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton<SpeechToTextService>(() => SpeechToTextServiceImp());
   locator.registerLazySingleton<LoggerService>(() => LoggerServiceImp());
 
+  //Registering Repositories
+  locator.registerLazySingleton<MainRepo>(() => MainRepoImp(speechToTextService: locator()));
+
   //Registering ViewModels
   locator.registerLazySingleton(() => MainVM(mainRepo: locator()));
 }
