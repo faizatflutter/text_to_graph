@@ -34,7 +34,6 @@ class MainVM extends ChangeNotifier {
   Future initializeSpeechToText() async {
     var initStatuesEither = await mainRepo.initializeSpeechToText(errorListener: errorListener, statusListener: statusListener);
     if (initStatuesEither.isLeft()) {
-      print("Not initialized()");
       return;
     }
     isSpeechInitialized = initStatuesEither.fold((l) => false, (r) => true);
@@ -78,6 +77,8 @@ class MainVM extends ChangeNotifier {
     resultStatus = status;
     if (status == 'listening') {
       isListening = true;
+    } else {
+      isListening = false;
     }
     notifyListeners();
   }

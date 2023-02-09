@@ -28,7 +28,7 @@ abstract class SpeechToTextService {
 }
 
 class SpeechToTextServiceImp implements SpeechToTextService {
-  late SpeechToText speechToText;
+  final SpeechToText speechToText = SpeechToText();
 
   @override
   SpeechToText getSpeechToTextInstance() => speechToText;

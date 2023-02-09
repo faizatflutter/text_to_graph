@@ -26,6 +26,7 @@ class MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
+    MainVM mainVM = context.watch<MainVM>();
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
